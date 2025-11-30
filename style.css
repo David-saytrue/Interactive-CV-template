@@ -1,0 +1,529 @@
+/* --- VARIABLES AND RESET --- */
+:root {
+  /* Color Palette */
+  --color-purple: #c5a9ff;
+  --color-cyan: #8addd5;
+
+  /* Theme Variables (Light by default) */
+  --bg-body: #f0f0f0;
+  --bg-card: #ffffff;
+  --text-main: #1a1a1a;
+  --text-muted: #666666;
+  --border-color: #eeeeee;
+  --badge-bg: #1a1a1a;
+  --badge-text: #ffffff;
+  --circle-inner: #ffffff;
+  --shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+
+  /* Font Variables */
+  --font-head: "Oswald", sans-serif;
+  --font-body: "Montserrat", sans-serif;
+}
+
+/* Dark Theme Overrides */
+body.dark-theme {
+  --bg-body: #121212;
+  --bg-card: #1e1e1e;
+  --text-main: #e0e0e0;
+  --text-muted: #a0a0a0;
+  --border-color: #333333;
+  --badge-bg: #c5a9ff;
+  --badge-text: #1a1a1a;
+  --circle-inner: #1e1e1e;
+  --shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+/* Global Reset and Transitions */
+* {
+  box-sizing: border-box;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* --- განახლებული BODY (ცენტრირებისთვის) --- */
+body {
+  margin: 0;
+  /* ეს უზრუნველყოფს ცენტრირებას და სქროლს საჭიროების შემთხვევაში */
+  padding: 40px 20px;
+  background-color: var(--bg-body);
+  font-family: var(--font-body);
+  color: var(--text-main);
+
+  /* ცენტრირების ლოგიკა */
+  min-height: 100vh; /* მთლიანი ეკრანი დაიკავოს */
+  display: flex;
+  flex-direction: column; /* ელემენტები განლაგდეს ვერტიკალურად (თუ სხვა რამ დაემატება) */
+  justify-content: center; /* ცენტრირება ვერტიკალურად */
+  align-items: center; /* ცენტრირება ჰორიზონტალურად */
+}
+
+/* --- THEME SWITCHER STYLES --- */
+.theme-switch-wrapper {
+  position: absolute;
+  top: 30px;
+  right: 30px;
+  display: flex;
+  align-items: center;
+  z-index: 100;
+}
+
+.theme-switch {
+  display: inline-block;
+  height: 26px;
+  position: relative;
+  width: 50px;
+}
+
+.theme-switch input {
+  display: none;
+}
+
+.slider {
+  background-color: #ccc;
+  bottom: 0;
+  cursor: pointer;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  transition: 0.4s;
+  border-radius: 34px;
+}
+
+.slider:before {
+  background-color: #fff;
+  bottom: 4px;
+  content: "";
+  height: 18px;
+  left: 4px;
+  position: absolute;
+  transition: 0.4s;
+  width: 18px;
+  border-radius: 50%;
+}
+
+input:checked + .slider {
+  background-color: var(--color-purple);
+}
+
+input:checked + .slider:before {
+  transform: translateX(24px);
+}
+
+.slider-icon {
+  position: absolute;
+  top: 5px;
+  font-size: 12px;
+}
+.icon-sun {
+  left: 6px;
+  color: #fff;
+  opacity: 0;
+  transition: 0.3s;
+}
+.icon-moon {
+  right: 6px;
+  color: #555;
+  opacity: 1;
+  transition: 0.3s;
+}
+
+input:checked + .slider .icon-sun {
+  opacity: 1;
+}
+input:checked + .slider .icon-moon {
+  opacity: 0;
+}
+
+/* --- MAIN CONTAINER LAYOUT --- */
+.resume-container {
+  /* დაემატა width: 100% რესპონსივისთვის */
+  width: 100%;
+  max-width: 960px;
+  background: var(--bg-card);
+  margin: 0 auto; /* უსაფრთხოებისთვის */
+  padding: 50px;
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 50px;
+  position: relative;
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+/* --- HEADER SECTION STYLES --- */
+.top-header {
+  grid-column: 1 / -1;
+  display: flex;
+  align-items: center;
+  border-bottom: 2px solid var(--border-color);
+  padding-bottom: 30px;
+  margin-bottom: 40px;
+}
+
+.avatar-box {
+  margin-right: 40px;
+}
+.avatar-img {
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+  object-fit: cover;
+  background-color: var(--bg-card);
+  padding: 5px;
+  border: 5px solid var(--color-purple);
+  display: block;
+}
+
+.header-content {
+  display: flex;
+  align-items: center;
+}
+.header-content h1 {
+  font-family: var(--font-head);
+  font-size: 3.5rem;
+  line-height: 0.85;
+  text-transform: uppercase;
+  margin: 0;
+  color: var(--text-main);
+}
+
+.light-text {
+  color: #a0a0ff;
+}
+
+.separator-line {
+  width: 6px;
+  height: 90px;
+  background: var(--text-main);
+  margin: 0 30px;
+}
+
+.gradient-text {
+  background: linear-gradient(to right, #ff8a8a, #ffdb4d);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* --- SECTION HEADINGS --- */
+h2 {
+  font-family: var(--font-head);
+  font-size: 1.4rem;
+  text-transform: uppercase;
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 8px;
+  margin-bottom: 25px;
+  margin-top: 0;
+  color: var(--text-main);
+}
+
+/* --- LEFT COLUMN (SIDEBAR) STYLES --- */
+.section-box {
+  margin-bottom: 40px;
+}
+
+.info-item {
+  margin-bottom: 15px;
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 5px;
+}
+.label {
+  display: block;
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: var(--text-main);
+}
+.value,
+.value a {
+  display: block;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  text-decoration: none;
+  margin-top: 3px;
+}
+
+/* Skill Progress Bars */
+.skill-bar {
+  margin-bottom: 15px;
+}
+.skill-title {
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: var(--text-main);
+}
+.bar-track {
+  height: 8px;
+  background: var(--border-color);
+  border-radius: 4px;
+  margin-top: 5px;
+  overflow: hidden;
+}
+.bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--color-cyan), var(--color-purple));
+}
+
+.sidebar-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-head);
+  font-weight: bold;
+  font-size: 1.5rem;
+  margin-top: 60px;
+  color: var(--text-main);
+}
+.sidebar-logo img {
+  width: 35px;
+  height: auto;
+  filter: inherit;
+}
+body.dark-theme .sidebar-logo img {
+  filter: invert(1) brightness(2);
+}
+
+/* --- RIGHT COLUMN (MAIN CONTENT) STYLES --- */
+.profile p {
+  color: var(--text-muted);
+  line-height: 1.6;
+  margin-bottom: 30px;
+}
+
+/* Skills Circles */
+.circles-row {
+  display: flex;
+  gap: 25px;
+  margin-bottom: 50px;
+  flex-wrap: wrap; /* რესპონსივისთვის - თუ არ ეტევა ჩამოიტანს */
+}
+.circle-wrap {
+  width: 85px;
+  height: 85px;
+  position: relative;
+  cursor: pointer;
+}
+
+.circle {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: conic-gradient(
+    var(--color-cyan) calc(var(--val) * 1%),
+    var(--border-color) 0
+  );
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.circle::after {
+  content: "";
+  position: absolute;
+  width: 70px;
+  height: 70px;
+  background: var(--circle-inner);
+  border-radius: 50%;
+}
+.circle span {
+  position: relative;
+  z-index: 2;
+  font-family: var(--font-head);
+  font-weight: bold;
+  font-size: 1.1rem;
+  color: var(--text-main);
+}
+
+/* --- TIMELINE STYLES --- */
+.timeline-section {
+  padding-bottom: 20px;
+}
+
+.timeline-row {
+  display: flex;
+  align-items: stretch;
+  position: relative;
+  padding-bottom: 0;
+  min-height: 80px;
+  cursor: default;
+  padding: 10px;
+  border-radius: 8px;
+  transition: background-color 0.3s ease;
+}
+
+.year-badge {
+  background: var(--badge-bg);
+  color: var(--badge-text);
+  font-family: var(--font-head);
+  font-weight: bold;
+  padding: 6px 15px 6px 10px;
+  height: 32px;
+  min-width: 75px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  clip-path: polygon(0% 0%, 85% 0%, 100% 50%, 85% 100%, 0% 100%);
+  margin-right: 20px;
+  transition: background-color 0.3s ease;
+  z-index: 5;
+}
+
+.line-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-right: 25px;
+  width: 20px;
+  flex-shrink: 0;
+}
+
+.dot {
+  width: 14px;
+  height: 14px;
+  background: var(--text-main);
+  border-radius: 50%;
+  margin-top: 9px;
+  flex-shrink: 0;
+  z-index: 2;
+  box-shadow: 0 0 0 4px var(--bg-card);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.line {
+  width: 2px;
+  background: #ccc;
+  flex-grow: 1;
+  margin-top: -2px;
+  margin-bottom: -15px;
+}
+
+.line.hidden {
+  display: none;
+}
+
+.text-content {
+  padding-top: 5px;
+  padding-bottom: 40px;
+}
+
+.text-content h3 {
+  margin: 0;
+  font-family: var(--font-head);
+  font-size: 1.1rem;
+  text-transform: uppercase;
+  color: var(--text-main);
+  transition: all 0.3s ease;
+}
+
+.text-content span {
+  display: block;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin-top: 4px;
+  text-transform: uppercase;
+}
+
+/* --- DECORATIVE STATUE IMAGE --- */
+.statue-corner {
+  position: absolute;
+  bottom: 0;
+  right: -5px;
+  width: 100px;
+  height: auto;
+  z-index: 10;
+  transition: filter 0.3s ease;
+}
+
+body.dark-theme .statue-corner {
+  filter: brightness(0.8);
+}
+
+/* --- RESPONSIVE DESIGN (გაუმჯობესებული) --- */
+@media (max-width: 768px) {
+  .resume-container {
+    grid-template-columns: 1fr;
+    /* მობილურზე padding შემცირდა რომ მეტი ადგილი იყოს */
+    padding: 30px 20px;
+  }
+  .theme-switch-wrapper {
+    top: 15px;
+    right: 15px;
+  }
+  .top-header {
+    flex-direction: column;
+    text-align: center;
+    padding-top: 30px;
+  }
+  .separator-line {
+    width: 60px;
+    height: 5px;
+    margin: 15px 0;
+  }
+  .header-content {
+    flex-direction: column;
+  }
+
+  /* წრეები შუაში გასწორდეს მობილურზე */
+  .circles-row {
+    justify-content: center;
+  }
+
+  .statue-corner {
+    display: none;
+  }
+
+  /* თაიმლაინის ბეჯი ოდნავ დაპატარავდეს მობილურზე თუ არ ეტევა */
+  .year-badge {
+    min-width: 65px;
+    font-size: 0.9rem;
+    margin-right: 15px;
+  }
+}
+
+/* --- ეფექტები და ჰოვერები --- */
+
+a {
+  text-decoration: none;
+  cursor: pointer;
+  position: relative;
+  z-index: 10;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: var(--color-purple);
+  text-decoration: underline;
+}
+
+.circle-wrap:hover .circle {
+  background: conic-gradient(
+    #ffdb4d calc(var(--val) * 1%),
+    var(--border-color) 0
+  );
+  box-shadow: 0 0 15px rgba(197, 169, 255, 0.6);
+  transition: box-shadow 0.3s ease;
+}
+
+.timeline-row:hover {
+  background-color: rgba(0, 0, 0, 0.03);
+}
+
+body.dark-theme .timeline-row:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+.timeline-row:hover .year-badge {
+  background: var(--color-cyan);
+  color: #000;
+  transform: scale(1.05);
+}
+
+.timeline-row:hover .dot {
+  background: var(--color-cyan);
+  box-shadow: 0 0 0 4px var(--bg-card), 0 0 10px var(--color-cyan);
+}
+
+.timeline-row:hover .text-content h3 {
+  color: var(--color-purple);
+  padding-left: 5px;
+}

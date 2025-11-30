@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Davit Chikvaidze - Vibe Coder</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&family=Oswald:wght@500;700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Подключение CSS -->
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="resume-container">
+      <!-- Переключатель темы -->
+      <div class="theme-switch-wrapper">
+        <label class="theme-switch" for="checkbox">
+          <input type="checkbox" id="checkbox" />
+          <div class="slider">
+            <span class="slider-icon icon-moon">☾</span>
+            <span class="slider-icon icon-sun">☀</span>
+          </div>
+        </label>
+      </div>
+
+      <!-- HEADER (Шапка) -->
+      <header class="top-header">
+        <div class="avatar-box">
+          <!-- Путь исправлен: файл лежит рядом с index.html -->
+          <img src="assets/img/Photo.png" alt="Avatar" class="avatar-img" />
+        </div>
+
+        <div class="header-content">
+          <div class="name-block">
+            <h1><span class="light-text">DAVIT</span><br />CHIKVAIDZE</h1>
+          </div>
+
+          <div class="separator-line"></div>
+
+          <div class="role-block">
+            <h1>VIBE<br /><span class="gradient-text">CODER</span></h1>
+          </div>
+        </div>
+      </header>
+
+      <!-- SIDEBAR (Левая колонка) -->
+      <aside class="sidebar">
+        <section class="section-box">
+          <h2>PERSONAL</h2>
+          <div class="info-item">
+            <span class="label">Name</span>
+            <span class="value">Davit Chikvaidze</span>
+          </div>
+          <div class="info-item">
+            <span class="label">Status</span>
+            <span class="value">Student & Dev</span>
+          </div>
+          <div class="info-item">
+            <span class="label">Nationality</span>
+            <span class="value">Georgian</span>
+          </div>
+          <div class="info-item">
+            <span class="label">Spoken Langs</span>
+            <span class="value">Georgian, English, Russian</span>
+          </div>
+        </section>
+
+        <section class="section-box">
+          <h2>CONTACT</h2>
+          <div class="info-item">
+            <span class="label">Email</span>
+            <span class="value">davit@codevibe.ge</span>
+          </div>
+          <div class="info-item">
+            <span class="label">GitHub</span>
+            <span class="value">
+              <a href="https://github.com/David-saytrue" target="_blank"
+                >github.com/David-saytrue</a
+              >
+            </span>
+          </div>
+          <div class="info-item">
+            <span class="label">LinkedIn</span>
+            <span class="value">
+              <a href="https://linkedin.com/in/davit-chikvaidze" target="_blank"
+                >/in/davit-chikvaidze</a
+              >
+            </span>
+          </div>
+        </section>
+
+        <section class="section-box">
+          <h2>CODE STACK</h2>
+          <div class="skill-bar">
+            <span class="skill-title">JavaScript / TypeScript</span>
+            <div class="bar-track">
+              <div class="bar-fill" style="width: 90%"></div>
+            </div>
+          </div>
+          <div class="skill-bar">
+            <span class="skill-title">Python (Django/FastAPI)</span>
+            <div class="bar-track">
+              <div class="bar-fill" style="width: 85%"></div>
+            </div>
+          </div>
+          <div class="skill-bar">
+            <span class="skill-title">C++ / C#</span>
+            <div class="bar-track">
+              <div class="bar-fill" style="width: 70%"></div>
+            </div>
+          </div>
+          <div class="skill-bar">
+            <span class="skill-title">React & Frontend</span>
+            <div class="bar-track">
+              <div class="bar-fill" style="width: 80%"></div>
+            </div>
+          </div>
+        </section>
+
+        <div class="sidebar-logo">
+          <!-- Путь исправлен -->
+          <img src="/assets/img/Logo.svg" alt="Logo" />
+          <span>vibe.</span>
+        </div>
+      </aside>
+
+      <!-- MAIN CONTENT (Правая колонка) -->
+      <main class="main-content">
+        <section class="profile">
+          <h2>PROFILE</h2>
+          <p>
+            I am a <strong>Vibe Coder</strong> and a polyglot programmer. I
+            speak multiple languages—both human and machine. My passion lies in
+            writing clean, efficient code while keeping a chill atmosphere.
+            Whether it's building web apps in JS or solving algorithms in C++, I
+            enjoy the challenge. When I'm away from the keyboard, I recharge by
+            <strong>hiking in nature</strong> or grinding mainly competitive
+            <strong>video games</strong>.
+          </p>
+
+          <div class="circles-row">
+            <div class="circle-wrap">
+              <div class="circle" data-val="95" style="--val: 0">
+                <span>LOGIC</span>
+              </div>
+            </div>
+            <div class="circle-wrap">
+              <div class="circle" data-val="85" style="--val: 0">
+                <span>WEB</span>
+              </div>
+            </div>
+            <div class="circle-wrap">
+              <div class="circle" data-val="80" style="--val: 0">
+                <span>ALGO</span>
+              </div>
+            </div>
+            <div class="circle-wrap">
+              <div class="circle" data-val="100" style="--val: 0">
+                <span>VIBE</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- EXPERIENCE -->
+        <section class="timeline-section">
+          <h2>EXPERIENCE & PROJECTS</h2>
+
+          <div class="timeline-row">
+            <div class="year-badge">2023</div>
+            <div class="line-wrapper">
+              <div class="dot"></div>
+              <div class="line"></div>
+            </div>
+            <div class="text-content">
+              <h3>FULLSTACK DEVELOPER (FREELANCE)</h3>
+              <span>UPWORK / REMOTE</span>
+            </div>
+          </div>
+
+          <div class="timeline-row">
+            <div class="year-badge">2022</div>
+            <div class="line-wrapper">
+              <div class="dot"></div>
+              <div class="line"></div>
+            </div>
+            <div class="text-content">
+              <h3>JUNIOR PYTHON DEVELOPER</h3>
+              <span>STARTUP "TECH GEORGIA"</span>
+            </div>
+          </div>
+
+          <div class="timeline-row">
+            <div class="year-badge">2021</div>
+            <div class="line-wrapper">
+              <div class="dot"></div>
+              <div class="line hidden"></div>
+              <!-- Линия скрыта для конца секции -->
+            </div>
+            <div class="text-content">
+              <h3>GAME MODDER & SCRIPTER</h3>
+              <span>COMMUNITY PROJECTS</span>
+            </div>
+          </div>
+        </section>
+
+        <!-- EDUCATION -->
+        <section class="timeline-section">
+          <h2>EDUCATION</h2>
+
+          <div class="timeline-row">
+            <div class="year-badge">2024</div>
+            <div class="line-wrapper">
+              <div class="dot"></div>
+              <div class="line"></div>
+            </div>
+            <div class="text-content">
+              <h3>COMPUTER SCIENCE</h3>
+              <span>STATE UNIVERSITY (BACHELOR)</span>
+            </div>
+          </div>
+
+          <div class="timeline-row">
+            <div class="year-badge">2020</div>
+            <div class="line-wrapper">
+              <div class="dot"></div>
+              <div class="line hidden"></div>
+            </div>
+            <div class="text-content">
+              <h3>ALGORITHMS & DATA STRUCTURES</h3>
+              <span>SELF-TAUGHT / ONLINE COURSES</span>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <!-- Статуя в углу (путь исправлен) -->
+      <img src="assets/img/Escultures.png" alt="Statue" class="statue-corner" />
+    </div>
+
+    <!-- Скрипт (путь исправлен) -->
+    <script src="assets/js/script.js"></script>
+  </body>
+</html>
